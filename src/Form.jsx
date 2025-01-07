@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Form({ onSubmit }) {
+function Form({ onSubmit, onSort }) {
   const [input, setInput] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +14,7 @@ function Form({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <fieldset>
+      <fieldset style={{ display: "flex", gap: "5px" }}>
         <legend>Add a book</legend>
         <input
           type="text"
@@ -24,6 +24,12 @@ function Form({ onSubmit }) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
+        <button type="button" onClick={onSort}>
+          Sort
+        </button>
+        <button type="button" onClick={onSort}>
+          Sort
+        </button>
         <button type="submit">Add book</button>
       </fieldset>
     </form>
